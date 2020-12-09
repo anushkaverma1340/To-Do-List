@@ -1,0 +1,24 @@
+<%- include('header') -%>
+<div class="box">
+
+  <!--Heading-->
+  <h1><%=listName%></h1>
+
+  <!--New Item Form-->
+  <form class="input-form" autocomplete="off" action="/" method="post">
+    <input type="text" class="item-input" name="newItem" placeholder="Add New Item">
+    <button type="submit" class="btn btn-secondary btn-sm">+</button>
+  </form>
+
+  <!--Present Items-->
+  <div class="present-items-list">
+    <% toDoItems.forEach(function(item){ %>
+      <form class="checkbox-form" action="/delete" method="post">
+        <input class="checkbox" type="checkbox" value="<%=item._id%>" name="checkbox" onChange="this.form.submit()">
+        <p class="parah"><%=item.name%></p>
+      </form>
+    <% }); %>
+  </div>
+
+</div>
+<%- include('footer') -%>
